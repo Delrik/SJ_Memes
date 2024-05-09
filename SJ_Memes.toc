@@ -6,13 +6,13 @@
 ## RequiredDeps: DBM-Core
 
 # Helpers
-CallbackRegister.lua
+lua/CallbackRegister.lua
 
 # Features
-HeavyNotReady.lua
-ExecuteAlert.lua
+lua/HeavyNotReady.lua
+lua/ExecuteAlert.lua
 
 # Core
-SJ_Core.lua
+lua/SJ_Core.lua
 
 ## Include: assets/assets.toc

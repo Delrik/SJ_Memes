@@ -1,4 +1,5 @@
 SJ = SJ or {}
+
 SJ.CallbackRegister = {}
 local plugin = SJ.CallbackRegister
 

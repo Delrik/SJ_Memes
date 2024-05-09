@@ -11,10 +11,8 @@ local plugin = SJ.HeavyNotReady
 local callbacks = SJ.CallbackRegister
 
 function plugin:enable(value)
+    if plugin.enabled == value then return end
     plugin.enabled = value
-end
-
-function plugin:update_state()
     if plugin.enabled then
         callbacks:register("DBM_Wipe", plugin.callback)
     else

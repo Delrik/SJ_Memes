@@ -56,6 +56,10 @@ function plugin:set_threshold(value)
     plugin.threshold = value
 end
 
+function plugin:get_threshold()
+    return plugin.threshold
+end
+
 function plugin:enable(value)
     if plugin.enabled == value then return end
     plugin.enabled = value

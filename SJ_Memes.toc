@@ -7,6 +7,7 @@
 
 # Helpers
 lua/CallbackRegister.lua
+lua/CommandProcessor.lua
 
 # Features
 lua/HeavyNotReady.lua

@@ -47,6 +47,12 @@ function plugin:get_boss_hp()
 end
 
 function plugin:set_threshold(value)
+    if value < 0 then
+        value = 0
+    end
+    if value > 100 then
+        value = 100
+    end
     plugin.threshold = value
 end
 
@@ -63,3 +69,15 @@ function plugin:enable(value)
         callbacks:unregister("DBM_Pull", plugin.end_callback)
     end
 end
+
+-- Register the command
+SJ.CommandProcessor:add_command("execute", function(value)
+    value = tonumber(value)
+    if not value then
+        return
+    end
+    if type(value) ~= "number" then
+        return
+    end
+    plugin:set_threshold(value)
+end, "execute <value>: Sets threshold for an execution phase")

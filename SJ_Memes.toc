@@ -4,10 +4,12 @@
 ## Version: 1.0.1
 ## DefaultState: enabled
 ## RequiredDeps: DBM-Core
+## SavedVariablesPerCharacter: ExecuteThreshold
 
 # Helpers
 lua/CallbackRegister.lua
 lua/CommandProcessor.lua
+lua/SavedVariables.lua
 
 # Features
 lua/HeavyNotReady.lua

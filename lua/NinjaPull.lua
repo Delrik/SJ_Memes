@@ -9,6 +9,7 @@ SJ.NinjaPull = {
 
 local plugin = SJ.NinjaPull
 local callbacks = SJ.CallbackRegister
+local events = SJ.EventRegister
 
 function plugin.callback(event, mod)
     if plugin.pull_at == 0 then return end
@@ -20,25 +21,21 @@ function plugin.callback(event, mod)
     plugin.pull_at = 0
 end
 
-local original_pull = C_PartyInfo.DoCountdown
-function plugin.Pull(seconds)
+function plugin.pull(_, _, seconds)
     plugin.pull_at = GetServerTime() + seconds
     C_Timer.After(seconds, function()
         plugin.pull_at = 0
     end)
-    original_pull(seconds)
 end
 
 function plugin.enable(value)
     if plugin.enabled == value then return end
     plugin.enabled = value
     if plugin.enabled then
-        C_PartyInfo.DoCountdown = function(seconds)
-            plugin.Pull(seconds)
-        end
         callbacks:register("DBM_Pull", plugin.callback)
+        events:register("START_PLAYER_COUNTDOWN", plugin.pull)
     else
-        C_PartyInfo.DoCountdown = original_pull
         callbacks:unregister("DBM_Pull", plugin.callback)
+        events:unregister("START_PLAYER_COUNTDOWN", plugin.pull)
     end
 end

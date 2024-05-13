@@ -85,3 +85,7 @@ SJ.CommandProcessor:add_command("execute", function(value)
     end
     plugin:set_threshold(value)
 end, "execute <value>: Sets threshold for an execution phase")
+
+SJ.CommandProcessor:add_command("get_execute", function(value)
+    print("Current threshold for execute phase is: " .. plugin:get_threshold())
+end, "get_execute: Gets the current threshold for an execution phase")

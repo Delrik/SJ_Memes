@@ -1,20 +1,20 @@
 SJ = SJ or {}
+SJ.SavedVariables = {}
 
-local frame = CreateFrame("FRAME");
-frame:RegisterEvent("ADDON_LOADED");
-frame:RegisterEvent("PLAYER_LOGOUT")
+local plugin = SJ.SavedVariables
 
-function frame:OnEvent(event, arg1)
-    if event == "ADDON_LOADED" and arg1 == SJ.addon_name then
+function plugin.OnLoadEvent(event, arg1)
+    if arg1 == SJ.addon_name then
         -- ExecuteAlert
         if not ExecuteThreshold then ExecuteThreshold = 35 end
         SJ.ExecuteAlert:set_threshold(ExecuteThreshold)
-
-    elseif event == "PLAYER_LOGOUT" then
-        -- ExecuteAlert
-        ExecuteThreshold = SJ.ExecuteAlert:get_threshold()
-
     end
 end
 
-frame:SetScript("OnEvent", frame.OnEvent);
+function plugin.OnLogoutEvent(event)
+    -- ExecuteAlert
+    ExecuteThreshold = SJ.ExecuteAlert:get_threshold()
+end
+
+SJ.EventRegister:register("ADDON_LOADED", plugin.OnLoadEvent)
+SJ.EventRegister:register("PLAYER_LOGOUT", plugin.OnLogoutEvent)

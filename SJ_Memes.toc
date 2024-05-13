@@ -7,6 +7,7 @@
 ## SavedVariablesPerCharacter: ExecuteThreshold
 
 # Helpers
+lua/EventRegister.lua
 lua/CallbackRegister.lua
 lua/CommandProcessor.lua
 lua/SavedVariables.lua
@@ -14,6 +15,7 @@ lua/SavedVariables.lua
 # Features
 lua/HeavyNotReady.lua
 lua/ExecuteAlert.lua
+lua/WinSound.lua
 
 # Core
 lua/SJ_Core.lua

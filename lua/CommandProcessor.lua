@@ -13,7 +13,7 @@ function plugin:add_command(command, callback, hint)
     if type(command) ~= "string" or type(callback) ~= "function" then
         return
     end
-    plugin.command_table[command] = {callback, hint}
+    plugin.command_table[command] = { callback, hint }
 end
 
 function plugin:print_help()

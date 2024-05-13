@@ -7,3 +7,4 @@
 # Sound Files
 heavy_execute.ogg
 heavy_not_ready.ogg
+heavy_win.ogg

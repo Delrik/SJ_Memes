@@ -15,6 +15,7 @@ lua/SavedVariables.lua
 # Features
 lua/HeavyNotReady.lua
 lua/ExecuteAlert.lua
+lua/WinSound.lua
 
 # Core
 lua/SJ_Core.lua

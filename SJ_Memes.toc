@@ -16,6 +16,7 @@ lua/SavedVariables.lua
 lua/HeavyNotReady.lua
 lua/ExecuteAlert.lua
 lua/WinSound.lua
+lua/NinjaPull.lua
 
 # Core
 lua/SJ_Core.lua

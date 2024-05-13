@@ -11,8 +11,6 @@ local plugin = SJ.NinjaPull
 local callbacks = SJ.CallbackRegister
 
 function plugin.callback(event, mod)
-    print("NinjaPull callback, pull_at: " ..
-        plugin.pull_at .. ", threshold: " .. plugin.threshold .. ", time: " .. GetServerTime())
     if plugin.pull_at == 0 then return end
     if plugin.pull_at - GetServerTime() > plugin.threshold then
         PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\heavy_ninja_pull.ogg", "Master")

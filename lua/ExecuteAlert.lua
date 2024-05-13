@@ -30,7 +30,6 @@ function plugin:repeater()
 end
 
 plugin.start_callback = function(event, mod)
-    print("event: " .. event)
     plugin.engaged = true
     plugin.mod = mod
     plugin:repeater();

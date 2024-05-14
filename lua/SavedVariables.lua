@@ -4,7 +4,7 @@ SJ.SavedVariables = {}
 local plugin = SJ.SavedVariables
 local events = SJ.EventRegister
 
-function plugin.OnLoadEvent(event, arg1)
+function plugin.OnLoadEvent(arg1)
     if arg1 == SJ.addon_name then
         -- ExecuteAlert
         if not ExecuteThreshold then ExecuteThreshold = 35 end
@@ -12,7 +12,7 @@ function plugin.OnLoadEvent(event, arg1)
     end
 end
 
-function plugin.OnLogoutEvent(event)
+function plugin.OnLogoutEvent()
     -- ExecuteAlert
     ExecuteThreshold = SJ.ExecuteAlert:get_threshold()
 end

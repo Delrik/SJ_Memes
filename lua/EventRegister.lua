@@ -32,7 +32,7 @@ function plugin:OnEvent(event, ...)
     for ev, callbacks in pairs(plugin.callbacks) do
         if event == ev then
             for _, callback in pairs(callbacks) do
-                callback(event, ...)
+                callback(...)
             end
         end
     end

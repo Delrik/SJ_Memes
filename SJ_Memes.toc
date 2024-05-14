@@ -13,6 +13,7 @@ lua/CommandProcessor.lua
 lua/SavedVariables.lua
 
 # Features
+lua/OnRoll.lua
 lua/HeavyNotReady.lua
 lua/ExecuteAlert.lua
 lua/WinSound.lua

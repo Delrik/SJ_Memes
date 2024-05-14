@@ -2,6 +2,7 @@ SJ = SJ or {}
 SJ.SavedVariables = {}
 
 local plugin = SJ.SavedVariables
+local events = SJ.EventRegister
 
 function plugin.OnLoadEvent(event, arg1)
     if arg1 == SJ.addon_name then
@@ -16,5 +17,5 @@ function plugin.OnLogoutEvent(event)
     ExecuteThreshold = SJ.ExecuteAlert:get_threshold()
 end
 
-SJ.EventRegister:register("ADDON_LOADED", plugin.OnLoadEvent)
-SJ.EventRegister:register("PLAYER_LOGOUT", plugin.OnLogoutEvent)
+events:register("ADDON_LOADED", plugin.OnLoadEvent)
+events:register("PLAYER_LOGOUT", plugin.OnLogoutEvent)

@@ -9,7 +9,7 @@ local plugin = SJ.OnResurrect
 local events = SJ.EventRegister
 
 function plugin.callback(_)
-    PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\heavy_ninja_pull.ogg", "Master")
+    PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\ress_sound_1.ogg", "Master")
 end
 
 function plugin.enable(value)

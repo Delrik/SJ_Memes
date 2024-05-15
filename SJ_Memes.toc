@@ -11,6 +11,7 @@ lua/EventRegister.lua
 lua/CallbackRegister.lua
 lua/CommandProcessor.lua
 lua/SavedVariables.lua
+lua/SoundAssets.lua
 
 # Features
 lua/OnResurrect.lua

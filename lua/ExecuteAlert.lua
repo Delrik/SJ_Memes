@@ -10,10 +10,11 @@ SJ.ExecuteAlert = {
 
 local plugin = SJ.ExecuteAlert
 local callbacks = SJ.CallbackRegister
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.ExecuteSounds)
 
 function plugin:notify()
     SendChatMessage("Execute phase!", "WHISPER", nil, UnitName("player"))
-    PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\heavy_execute.ogg", "Master")
+    PlaySoundFile(sounds:choose(), "Master")
 end
 
 function plugin:repeater()

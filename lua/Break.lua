@@ -8,12 +8,12 @@ SJ.Break = {
 
 local plugin = SJ.Break
 local callbacks = SJ.CallbackRegister
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.BreakSounds)
 
 function plugin.callback(_, _, arg)
     if arg == "Break time!" and not plugin.announced then
         plugin.announced = true
-        -- TODO: Update this to use the new sound system when one is implemented
-        PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\break_1.ogg", "Master")
+        PlaySoundFile(sounds:choose(), "Master")
         -- Handle sound duplication due to 2 callbacks being fired from DBM one right after the other
         C_Timer.After(5, function()
             plugin.announced = false
@@ -22,8 +22,8 @@ function plugin.callback(_, _, arg)
 end
 
 function plugin:enable(value)
-    self.enabled = value
-    if value then
+    plugin.enabled = value
+    if plugin.enabled then
         callbacks:register("DBM_TimerStart", plugin.callback)
     else
         callbacks:unregister("DBM_TimerStart", plugin.callback)

@@ -7,9 +7,10 @@ SJ.OnResurrect = {
 
 local plugin = SJ.OnResurrect
 local events = SJ.EventRegister
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.ResurrectSounds)
 
 function plugin.callback(_)
-    PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\ress_sound_1.ogg", "Master")
+    PlaySoundFile(sounds:choose(), "Master")
 end
 
 function plugin.enable(value)

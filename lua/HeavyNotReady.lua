@@ -2,13 +2,16 @@ SJ = SJ or {}
 
 SJ.HeavyNotReady = {
     enabled = false,
-    callback = function()
-        PlaySoundFile("Interface\\AddOns\\SJ_Memes\\assets\\heavy_not_ready.ogg", "Master")
-    end
+    callback = {}
 }
 
 local plugin = SJ.HeavyNotReady
 local callbacks = SJ.CallbackRegister
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.WipeSounds)
+
+function plugin.callback()
+    PlaySoundFile(sounds:choose(), "Master")
+end
 
 function plugin:enable(value)
     if plugin.enabled == value then return end

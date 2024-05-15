@@ -18,6 +18,7 @@ lua/HeavyNotReady.lua
 lua/ExecuteAlert.lua
 lua/WinSound.lua
 lua/NinjaPull.lua
+lua/Break.lua
 
 # Core
 lua/SJ_Core.lua

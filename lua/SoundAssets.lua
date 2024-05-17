@@ -7,8 +7,12 @@ SJ.SoundAssets = {
 local plugin = SJ.SoundAssets
 plugin.__index = plugin
 
-function plugin:choose()
-    return self.sound_pack[math.random(#self.sound_pack)]
+function plugin:choose(index)
+    -- Divide by 10 to have an index more consistent between clients
+    if not index then
+        index = math.floor(((GetServerTime() / 10) % #self.sound_pack) + 1)
+    end
+    return self.sound_pack[index]
 end
 
 plugin.BreakSounds = {

@@ -20,6 +20,11 @@ end
 function plugin:repeater()
     if not plugin.engaged then return end
     local hp = plugin:get_boss_hp()
+    if not hp then
+        -- Reschedule. This is a workaround for cases when hp is not available for a moment but the combat is still ongoing
+        C_Timer.After(0.1, plugin.repeater)
+        return
+    end
     if hp > plugin.threshold then
         plugin.notified = false
     end

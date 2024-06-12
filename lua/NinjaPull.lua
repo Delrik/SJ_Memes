@@ -16,7 +16,7 @@ function plugin.callback(_, mod)
     if plugin.pull_at == 0 then return end
     if plugin.pull_at - GetServerTime() > plugin.threshold then
         PlaySoundFile(sounds:choose(), "Master")
-        local suspect_name = mod:GetBossTarget(mod.mainBoss or mod.combatInfo.mob or -1)
+        local suspect_name = mod:GetBossTarget(mod.mainBoss or mod.combatInfo.mob or -1) or "Unknown"
         print("Ninja pull suspect: " .. suspect_name)
     end
     plugin.pull_at = 0

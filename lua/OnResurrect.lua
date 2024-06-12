@@ -7,7 +7,7 @@ SJ.OnResurrect = {
 
 local plugin = SJ.OnResurrect
 local events = SJ.EventRegister
-local sounds = SJ.SoundAssets:init(SJ.SoundAssets.ResurrectSounds)
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.ResurrectionSounds)
 
 function plugin.callback(_)
     PlaySoundFile(sounds:choose(), "Master")

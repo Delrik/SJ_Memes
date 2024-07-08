@@ -5,10 +5,10 @@
 ## Notes: Sound assets for SJ_Memes addon
 
 # Sound Files
-heavy_execute.ogg
-heavy_not_ready.ogg
-heavy_win.ogg
-heavy_ninja_pull.ogg
-ress_sound_1.ogg
+execute_1.ogg
+wipe_1.ogg
+kill_1.ogg
+ninja_pull_1.ogg
+ressurrection_1.ogg
 break_1.ogg
 break_2.ogg

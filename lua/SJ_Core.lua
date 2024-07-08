@@ -1,9 +1,9 @@
 SJ = SJ or {}
 SJ.addon_name = "SJ_Memes"
 
-SJ.HeavyNotReady:enable(true)
-SJ.ExecuteAlert:enable(true)
-SJ.WinSound:enable(true)
-SJ.NinjaPull:enable(true)
+SJ.OnWipe:enable(true)
+SJ.OnExecuteStage:enable(true)
+SJ.OnKill:enable(true)
+SJ.OnNinjaPull:enable(true)
 SJ.OnResurrect:enable(true)
-SJ.Break:enable(true)
+SJ.OnBreak:enable(true)

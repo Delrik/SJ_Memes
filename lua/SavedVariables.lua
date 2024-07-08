@@ -6,15 +6,15 @@ local events = SJ.EventRegister
 
 function plugin.OnLoadEvent(arg1)
     if arg1 == SJ.addon_name then
-        -- ExecuteAlert
+        -- OnExecuteStage
         if not ExecuteThreshold then ExecuteThreshold = 35 end
-        SJ.ExecuteAlert:set_threshold(ExecuteThreshold)
+        SJ.OnExecuteStage:set_threshold(ExecuteThreshold)
     end
 end
 
 function plugin.OnLogoutEvent()
-    -- ExecuteAlert
-    ExecuteThreshold = SJ.ExecuteAlert:get_threshold()
+    -- OnExecuteStage
+    ExecuteThreshold = SJ.OnExecuteStage:get_threshold()
 end
 
 events:register("ADDON_LOADED", plugin.OnLoadEvent)

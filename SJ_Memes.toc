@@ -15,11 +15,11 @@ lua/SoundAssets.lua
 
 # Features
 lua/OnResurrect.lua
-lua/HeavyNotReady.lua
-lua/ExecuteAlert.lua
-lua/WinSound.lua
-lua/NinjaPull.lua
-lua/Break.lua
+lua/OnWipe.lua
+lua/OnExecuteStage.lua
+lua/OnKill.lua
+lua/OnNinjaPull.lua
+lua/OnBreak.lua
 
 # Core
 lua/SJ_Core.lua

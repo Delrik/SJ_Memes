@@ -1,13 +1,13 @@
 SJ = SJ or {}
 
-SJ.HeavyNotReady = {
+SJ.OnWipe = {
     enabled = false,
     callback = {}
 }
 
-local plugin = SJ.HeavyNotReady
+local plugin = SJ.OnWipe
 local callbacks = SJ.CallbackRegister
-local sounds = SJ.SoundAssets:init(SJ.SoundAssets.WipeSounds)
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.OnWipeSounds)
 
 function plugin.callback()
     PlaySoundFile(sounds:choose(), "Master")

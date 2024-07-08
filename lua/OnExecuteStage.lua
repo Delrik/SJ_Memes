@@ -1,6 +1,6 @@
 SJ = SJ or {}
 
-SJ.ExecuteAlert = {
+SJ.OnExecuteStage = {
     threshold = 35,
     enabled = false,
     mod = {},
@@ -8,9 +8,9 @@ SJ.ExecuteAlert = {
     notified = false
 }
 
-local plugin = SJ.ExecuteAlert
+local plugin = SJ.OnExecuteStage
 local callbacks = SJ.CallbackRegister
-local sounds = SJ.SoundAssets:init(SJ.SoundAssets.ExecuteSounds)
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.OnExecuteSounds)
 
 function plugin:notify()
     SendChatMessage("Execute phase!", "WHISPER", nil, UnitName("player"))

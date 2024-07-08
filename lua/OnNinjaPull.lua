@@ -1,16 +1,16 @@
 SJ = SJ or {}
 
-SJ.NinjaPull = {
+SJ.OnNinjaPull = {
     enabled = false,
     callback = {},
     pull_at = 0,
     threshold = 1
 }
 
-local plugin = SJ.NinjaPull
+local plugin = SJ.OnNinjaPull
 local callbacks = SJ.CallbackRegister
 local events = SJ.EventRegister
-local sounds = SJ.SoundAssets:init(SJ.SoundAssets.NinjaPullSounds)
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.OnNinjaPullSounds)
 
 function plugin.callback(_, mod)
     if plugin.pull_at == 0 then return end

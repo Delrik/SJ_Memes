@@ -1,13 +1,13 @@
 SJ = SJ or {}
-SJ.WinSound = {
+SJ.OnKill = {
     enabled = false,
     dbm_sound = "",
     callback = {}
 }
 
-local plugin = SJ.WinSound
+local plugin = SJ.OnKill
 local callbacks = SJ.CallbackRegister
-local sounds = SJ.SoundAssets:init(SJ.SoundAssets.WinSounds)
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.OnKillSounds)
 
 function plugin.callback()
     PlaySoundFile(sounds:choose(), "Master")

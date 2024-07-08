@@ -1,14 +1,14 @@
 SJ = SJ or {}
 
-SJ.Break = {
+SJ.OnBreak = {
     enabled = false,
     callback = {},
     announced = false
 }
 
-local plugin = SJ.Break
+local plugin = SJ.OnBreak
 local callbacks = SJ.CallbackRegister
-local sounds = SJ.SoundAssets:init(SJ.SoundAssets.BreakSounds)
+local sounds = SJ.SoundAssets:init(SJ.SoundAssets.OnBreakSounds)
 
 function plugin.callback(_, _, arg, seconds)
     if arg == "Break time!" and not plugin.announced then

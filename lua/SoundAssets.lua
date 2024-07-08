@@ -15,29 +15,29 @@ function plugin:choose(index)
     return self.sound_pack[index]
 end
 
-plugin.BreakSounds = {
+plugin.OnBreakSounds = {
     "Interface\\AddOns\\SJ_Memes\\assets\\break_1.ogg",
     "Interface\\AddOns\\SJ_Memes\\assets\\break_2.ogg"
 }
 
-plugin.ExecuteSounds = {
-    "Interface\\AddOns\\SJ_Memes\\assets\\heavy_execute.ogg"
+plugin.OnExecuteSounds = {
+    "Interface\\AddOns\\SJ_Memes\\assets\\execute_1.ogg"
 }
 
-plugin.WipeSounds = {
-    "Interface\\AddOns\\SJ_Memes\\assets\\heavy_not_ready.ogg"
+plugin.OnWipeSounds = {
+    "Interface\\AddOns\\SJ_Memes\\assets\\wipe_1.ogg"
 }
 
-plugin.WinSounds = {
-    "Interface\\AddOns\\SJ_Memes\\assets\\heavy_win.ogg"
+plugin.OnKillSounds = {
+    "Interface\\AddOns\\SJ_Memes\\assets\\kill_1.ogg"
 }
 
-plugin.NinjaPullSounds = {
-    "Interface\\AddOns\\SJ_Memes\\assets\\heavy_ninja_pull.ogg"
+plugin.OnNinjaPullSounds = {
+    "Interface\\AddOns\\SJ_Memes\\assets\\ninja_pull_1.ogg"
 }
 
-plugin.ResurrectionSounds = {
-    "Interface\\AddOns\\SJ_Memes\\assets\\ress_sound_1.ogg"
+plugin.OnResurrectionSounds = {
+    "Interface\\AddOns\\SJ_Memes\\assets\\ressurrection_1.ogg"
 }
 
 function plugin:init(sound_pack)

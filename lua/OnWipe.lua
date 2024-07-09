@@ -22,3 +22,7 @@ function plugin:enable(value)
         callbacks:unregister("DBM_Wipe", plugin.callback)
     end
 end
+
+function plugin:is_enabled()
+    return plugin.enabled
+end

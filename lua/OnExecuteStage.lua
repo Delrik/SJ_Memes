@@ -80,6 +80,10 @@ function plugin:enable(value)
     end
 end
 
+function plugin:is_enabled()
+    return plugin.enabled
+end
+
 -- Register the command
 SJ.CommandProcessor:add_command("execute", function(value)
     value = tonumber(value)

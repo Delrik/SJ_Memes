@@ -1,7 +1,7 @@
 ## Interface: 40400
 ## Title: SJ_Memes
 ## Author: Delrik
-## Version: 1.0.2
+## Version: 1.1.0
 ## DefaultState: enabled
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: SJ_Options
@@ -20,6 +20,7 @@ lua/OnExecuteStage.lua
 lua/OnKill.lua
 lua/OnNinjaPull.lua
 lua/OnBreak.lua
+lua/OptionsWindow.lua
 
 # Core
 lua/Options.lua

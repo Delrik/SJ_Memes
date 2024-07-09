@@ -13,7 +13,7 @@ function plugin.callback(_)
     PlaySoundFile(sounds:choose(), "Master")
 end
 
-function plugin.enable(value)
+function plugin:enable(value)
     if plugin.enabled == value then return end
     plugin.enabled = value
     if plugin.enabled then
@@ -21,4 +21,8 @@ function plugin.enable(value)
     else
         events:unregister("RESURRECT_REQUEST", plugin.callback)
     end
+end
+
+function plugin:is_enabled()
+    return plugin.enabled
 end

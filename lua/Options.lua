@@ -24,6 +24,25 @@ local function match_options(options)
     return result
 end
 
+local plugin_matcher = {
+    ["OnWipe"] = SJ.OnWipe,
+    ["OnExecuteStage"] = SJ.OnExecuteStage,
+    ["OnKill"] = SJ.OnKill,
+    ["OnNinjaPull"] = SJ.OnNinjaPull,
+    ["OnResurrect"] = SJ.OnResurrect,
+    ["OnBreak"] = SJ.OnBreak
+}
+
+function plugin:apply_option(key, value)
+    local plugin = plugin_matcher[key]
+    if plugin then
+        plugin:enable(value.enabled)
+        if key == "OnExecuteStage" then
+            plugin:set_threshold(value.threshold)
+        end
+    end
+end
+
 function plugin:get_options()
     local result = {}
     result["OnWipe"] = { enabled = SJ.OnWipe.enabled }
@@ -37,17 +56,7 @@ end
 
 function plugin:set_options(options)
     options = match_options(options)
-    -- OnWipe
-    SJ.OnWipe:enable(options["OnWipe"].enabled)
-    -- OnExecuteStage
-    SJ.OnExecuteStage:enable(options["OnExecuteStage"].enabled)
-    SJ.OnExecuteStage:set_threshold(options["OnExecuteStage"].threshold)
-    -- OnKill
-    SJ.OnKill:enable(options["OnKill"].enabled)
-    -- OnNinjaPull
-    SJ.OnNinjaPull:enable(options["OnNinjaPull"].enabled)
-    -- OnResurrect
-    SJ.OnResurrect:enable(options["OnResurrect"].enabled)
-    -- OnBreak
-    SJ.OnBreak:enable(options["OnBreak"].enabled)
+    for key, value in pairs(options) do
+        plugin:apply_option(key, value)
+    end
 end

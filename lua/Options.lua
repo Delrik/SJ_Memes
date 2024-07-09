@@ -34,23 +34,23 @@ local plugin_matcher = {
 }
 
 function plugin:apply_option(key, value)
-    local plugin = plugin_matcher[key]
-    if plugin then
-        plugin:enable(value.enabled)
+    local subplugin = plugin_matcher[key]
+    if subplugin then
+        subplugin:enable(value.enabled)
         if key == "OnExecuteStage" then
-            plugin:set_threshold(value.threshold)
+            subplugin:set_threshold(value.threshold)
         end
     end
 end
 
 function plugin:get_options()
     local result = {}
-    result["OnWipe"] = { enabled = SJ.OnWipe.enabled }
-    result["OnExecuteStage"] = { enabled = SJ.OnExecuteStage.enabled, threshold = SJ.OnExecuteStage:get_threshold() }
-    result["OnKill"] = { enabled = SJ.OnKill.enabled }
-    result["OnNinjaPull"] = { enabled = SJ.OnNinjaPull.enabled }
-    result["OnResurrect"] = { enabled = SJ.OnResurrect.enabled }
-    result["OnBreak"] = { enabled = SJ.OnBreak.enabled }
+    result["OnWipe"] = { enabled = SJ.OnWipe:is_enabled() }
+    result["OnExecuteStage"] = { enabled = SJ.OnExecuteStage:is_enabled(), threshold = SJ.OnExecuteStage:get_threshold() }
+    result["OnKill"] = { enabled = SJ.OnKill:is_enabled() }
+    result["OnNinjaPull"] = { enabled = SJ.OnNinjaPull:is_enabled() }
+    result["OnResurrect"] = { enabled = SJ.OnResurrect:is_enabled() }
+    result["OnBreak"] = { enabled = SJ.OnBreak:is_enabled() }
     return result
 end
 

@@ -29,7 +29,7 @@ function plugin.pull(_, seconds)
     end)
 end
 
-function plugin.enable(value)
+function plugin:enable(value)
     if plugin.enabled == value then return end
     plugin.enabled = value
     if plugin.enabled then
@@ -39,4 +39,8 @@ function plugin.enable(value)
         callbacks:unregister("DBM_Pull", plugin.callback)
         events:unregister("START_PLAYER_COUNTDOWN", plugin.pull)
     end
+end
+
+function plugin:is_enabled()
+    return plugin.enabled
 end

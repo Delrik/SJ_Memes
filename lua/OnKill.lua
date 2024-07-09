@@ -26,3 +26,7 @@ function plugin:enable(value)
         plugin.dbm_sound = ""
     end
 end
+
+function plugin:is_enabled()
+    return plugin.enabled
+end

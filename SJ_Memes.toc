@@ -1,10 +1,10 @@
 ## Interface: 40400
 ## Title: SJ_Memes
 ## Author: Delrik
-## Version: 1.0.1
+## Version: 1.0.2
 ## DefaultState: enabled
 ## RequiredDeps: DBM-Core
-## SavedVariablesPerCharacter: ExecuteThreshold
+## SavedVariablesPerCharacter: SJ_Options
 
 # Helpers
 lua/EventRegister.lua
@@ -22,6 +22,7 @@ lua/OnNinjaPull.lua
 lua/OnBreak.lua
 
 # Core
+lua/Options.lua
 lua/SJ_Core.lua
 
 ## Include: assets/assets.toc

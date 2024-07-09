@@ -20,6 +20,7 @@ lua/OnExecuteStage.lua
 lua/OnKill.lua
 lua/OnNinjaPull.lua
 lua/OnBreak.lua
+lua/OptionsWindow.lua
 
 # Core
 lua/Options.lua

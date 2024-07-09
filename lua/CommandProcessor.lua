@@ -19,17 +19,15 @@ end
 function plugin:print_help()
     print("\124cFF00CCFFSJ Help:\124r")
     for command, data in pairs(plugin.command_table) do
-        print("\124cFFFFFF00" .. command .. ":\124r " .. data[2])
+        if command ~= "" then
+            print("\124cFFFFFF00" .. command .. ":\124r " .. data[2])
+        end
     end
 end
 
 -- Register the slash command
 SLASH_SJ1 = "/sj"
 SlashCmdList["SJ"] = function(msg)
-    if msg == "" then
-        print("SJ: Type /sj help for a list of commands.")
-        return
-    end
     if msg == "help" then
         plugin:print_help()
         return

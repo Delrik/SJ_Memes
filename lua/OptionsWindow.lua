@@ -9,23 +9,23 @@ local plugin = SJ.OptionsWindow
 
 local OptionsContent = {
     ["On wipe feature"] = {
-        [{ function(value) SJ.OnWipe:enable(value) end, function() return SJ.OnWipe:is_enabled() end }] = { "checkbox", "Enable wipe sound" }
+        [{ "OnWipe", "enabled" }] = { "checkbox", "Enable wipe sound" }
     },
     ["On execute stage feature"] = {
-        [{ function(value) SJ.OnExecuteStage:enable(value) end, function() return SJ.OnExecuteStage:is_enabled() end }] = { "checkbox", "Enable execute stage sound" },
-        [{ function(value) SJ.OnExecuteStage:set_threshold(value) end, function() return SJ.OnExecuteStage:get_threshold() end }] = { "slider", "Execute stage threshold" }
+        [{ "OnExecuteStage", "enabled" }] = { "checkbox", "Enable execute stage" },
+        [{ "OnExecuteStage", "threshold" }] = { "slider", "Execute stage threshold" }
     },
     ["On kill feature"] = {
-        [{ function(value) SJ.OnKill:enable(value) end, function() return SJ.OnKill:is_enabled() end }] = { "checkbox", "Enable kill sound" }
+        [{ "OnKill", "enabled" }] = { "checkbox", "Enable kill sound" }
     },
     ["On ninja pull feature"] = {
-        [{ function(value) SJ.OnNinjaPull:enable(value) end, function() return SJ.OnNinjaPull:is_enabled() end }] = { "checkbox", "Enable ninja pull sound" }
+        [{ "OnNinjaPull", "enabled" }] = { "checkbox", "Enable ninja pull sound" }
     },
-    ["On resurrect feature"] = {
-        [{ function(value) SJ.OnResurrect:enable(value) end, function() return SJ.OnResurrect:is_enabled() end }] = { "checkbox", "Enable resurrect sound" }
+    ["On resurrection feature"] = {
+        [{ "OnResurrect", "enabled" }] = { "checkbox", "Enable resurrect sound" }
     },
     ["On break feature"] = {
-        [{ function(value) SJ.OnBreak:enable(value) end, function() return SJ.OnBreak:is_enabled() end }] = { "checkbox", "Enable break sound" }
+        [{ "OnBreak", "enabled" }] = { "checkbox", "Enable break sound" }
     }
 }
 
@@ -63,7 +63,7 @@ local function create_frame(parent, framename, width, height, point, offset_x, o
     return frame
 end
 
-local function create_checkbox(parent, text, point, offset_x, offset_y, setter, getter)
+local function create_checkbox(parent, text, point, offset_x, offset_y, subplugin, parameter)
     local checkbox = CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
     checkbox:SetPoint(point, offset_x, offset_y)
     checkbox.text = checkbox:CreateFontString(nil, "OVERLAY")
@@ -71,15 +71,15 @@ local function create_checkbox(parent, text, point, offset_x, offset_y, setter, 
     checkbox.text:SetPoint("LEFT", checkbox, "RIGHT", 5, 0)
     checkbox.text:SetText(text)
     checkbox:SetScript("OnClick", function()
-        setter(checkbox:GetChecked())
+        SJ.Options:set_parameter(subplugin, parameter, checkbox:GetChecked())
     end)
     checkbox:SetScript("OnShow", function()
-        checkbox:SetChecked(getter())
+        checkbox:SetChecked(SJ.Options:get_parameter(subplugin, parameter))
     end)
     return checkbox
 end
 
-local function create_slider(parent, text, point, offset_x, offset_y, min, max, step, setter, getter)
+local function create_slider(parent, text, point, offset_x, offset_y, min, max, step, subplugin, parameter)
     local slider = CreateFrame("Slider", nil, parent, "OptionsSliderTemplate")
     slider:SetPoint(point, offset_x, offset_y)
     slider:SetMinMaxValues(min, max)
@@ -93,25 +93,24 @@ local function create_slider(parent, text, point, offset_x, offset_y, min, max, 
     slider.value = slider:CreateFontString(nil, "OVERLAY")
     slider.value:SetFontObject("GameFontHighlight")
     slider.value:SetPoint("LEFT", slider, "RIGHT", 5, 0)
-    slider.value:SetText(getter())
+    slider.value:SetText(SJ.Options:get_parameter(subplugin, parameter))
     slider:SetScript("OnValueChanged", function(self, value)
-        setter(value)
-        self.value:SetText(getter())
+        SJ.Options:set_parameter(subplugin, parameter, value)
+        self.value:SetText(value)
     end)
     slider:SetScript("OnShow", function(self)
-        self:SetValue(getter())
+        self:SetValue(SJ.Options:get_parameter(subplugin, parameter))
     end)
     return slider
 end
 
--- Creates control item from [{ getter, setter }] = { type, text }
-local function create_control_item(parent, control, point, offset_x, offset_y, setter, getter)
+local function create_control_item(parent, control, point, offset_x, offset_y, subplugin, parameter)
     local control_type = control[1]
     local control_text = control[2]
     if control_type == "checkbox" then
-        return create_checkbox(parent, control_text, point, offset_x, offset_y, setter, getter)
+        return create_checkbox(parent, control_text, point, offset_x, offset_y, subplugin, parameter)
     elseif control_type == "slider" then
-        return create_slider(parent, control_text, point, offset_x, offset_y - 5, 0, 100, 1, setter, getter)
+        return create_slider(parent, control_text, point, offset_x, offset_y - 5, 0, 100, 1, subplugin, parameter)
     end
     return nil
 end

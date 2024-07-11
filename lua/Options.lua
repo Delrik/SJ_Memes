@@ -95,8 +95,8 @@ function plugin:get_option(subplugin)
         return nil
     end
     local result = {}
-    for sub_key, sub_value in getter_setter_matcher[subplugin] do
-        result[sub_key] = sub_value[1]()
+    for key, value in pairs(getter_setter_matcher[subplugin]) do
+        result[key] = value[1]()
     end
     return result
 end
@@ -116,7 +116,7 @@ end
 
 function plugin:get_options()
     local result = {}
-    for key, _ in getter_setter_matcher do
+    for key, _ in pairs(getter_setter_matcher) do
         result[key] = plugin:get_option(key)
     end
     return result
